@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// This script is used to control the length of your page-reference string 
+/// page-reference length is controlled by the add and reduce buttons
+/// </summary>
 public class ReferenceLengthController : MonoBehaviour
 {
 	public int currentRefLength = 2;
@@ -13,7 +16,6 @@ public class ReferenceLengthController : MonoBehaviour
 	public TMP_Text refStrCountText;
 	public Warnings warning;
 
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -22,6 +24,9 @@ public class ReferenceLengthController : MonoBehaviour
 		// Set the count initially
 		refStrCountText.text = "Reference String Length: " + currentRefLength;
 
+		// Add initial value to the dataManager
+		DataManager.instance.SetRefStringLength(currentRefLength);
+		
 	}
 	// Add frame count
 	public void OnClickAdd()
@@ -38,6 +43,9 @@ public class ReferenceLengthController : MonoBehaviour
 			warning.DisplayWarning("Maximum Reference String Count Reached!");
 		}
 		UpdateRefStrText();
+
+		// Save the data
+		DataManager.instance.SetRefStringLength(currentRefLength);
 	}
 
 	// Reduce frame count
@@ -55,6 +63,9 @@ public class ReferenceLengthController : MonoBehaviour
 			warning.DisplayWarning("Minimum Reference String Count Reached!");
 		}
 		UpdateRefStrText();
+
+		// Save the data
+		DataManager.instance.SetRefStringLength(currentRefLength);
 	}
 
 	private void UpdateRefStrText()

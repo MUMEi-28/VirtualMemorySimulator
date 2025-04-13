@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// This is used to generate random page-reference string and takes data from ReferenceLengthController.cs
+/// Is controlled by the generate button
+/// </summary>
+
 public class RefStringGenerator : MonoBehaviour
 {
     public int[] pageRefStr;
 
     public ReferenceLengthController pageRefLengthController;
     public TMP_Text refStringTxt;
+
+    private DataManager dataManager;
 
 	// Start is called before the first frame update
 	void Start()
@@ -20,7 +27,6 @@ public class RefStringGenerator : MonoBehaviour
         for (int i = 0; i < pageRefLengthController.currentRefLength; i++)
         {
             int randomNumber = Random.Range(0, 9);
-            Debug.Log(randomNumber);
 
             pageRefStr[i] = randomNumber;
         }

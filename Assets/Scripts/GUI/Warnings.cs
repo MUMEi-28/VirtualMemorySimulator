@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This script is used to show warning messages to the user
+/// e.g if the maximum frame count is reached
+/// </summary>
 public class Warnings : MonoBehaviour
 {
 	public TMP_Text warningText;
