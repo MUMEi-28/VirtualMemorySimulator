@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is used to control the length of your page-reference string 
@@ -15,6 +16,8 @@ public class ReferenceLengthController : MonoBehaviour
 
 	public TMP_Text refStrCountText;
 	public Warnings warning;
+
+	public Button applyButton;
 
 	// Start is called before the first frame update
 	void Start()
@@ -46,6 +49,9 @@ public class ReferenceLengthController : MonoBehaviour
 
 		// Save the data
 		DataManager.instance.SetRefStringLength(currentRefLength);
+
+		// Disable the button when the generate button is not clicked yet
+		applyButton.interactable = false;
 	}
 
 	// Reduce frame count
@@ -66,6 +72,9 @@ public class ReferenceLengthController : MonoBehaviour
 
 		// Save the data
 		DataManager.instance.SetRefStringLength(currentRefLength);
+
+		// Disable the button when the generate button is not clicked yet
+		applyButton.interactable = false;
 	}
 
 	private void UpdateRefStrText()

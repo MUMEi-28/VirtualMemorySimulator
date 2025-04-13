@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25985fa1a617653468fb1feefa6316fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refStringNum: {fileID: 7701115247360312667}
+  refStringNumTxt: {fileID: 7701115247360312667}
   frameSlot: {fileID: 787040008401945851, guid: 22d5a9f7870b66042b8a7837a40617bc, type: 3}
   frameSlotParent: {fileID: 7311555389612871867}
 --- !u!1 &2561189095585197521

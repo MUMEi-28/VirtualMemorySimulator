@@ -12,7 +12,7 @@ public class DataManager : MonoBehaviour
     [SerializeField]
 	private int refStringLenght;
     [SerializeField]
-	private int[] refString;
+    private int[] refStringArray;
 
     public static DataManager instance;
 
@@ -22,13 +22,14 @@ public class DataManager : MonoBehaviour
         instance = this;
 	}
 	// Start is called before the first frame update
-	void Start()
+	/*void Start()
     {
-        
-    }
+		// This would be from another script, like a generator
+		SetRefStringArray(new int[] { 7, 0, 1, 2 });
+	}*/
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         
     }
@@ -49,5 +50,13 @@ public class DataManager : MonoBehaviour
     public void SetRefStringLength(int length)
     {
         refStringLenght = length;
+    }
+    public void SetRefStringArray(int[] strArray)
+    {
+        refStringArray = strArray;
+    }
+    public int[] GetRefStringArray()
+    {
+        return refStringArray;
     }
 }

@@ -31,10 +31,14 @@ public class RefStringGenerator : MonoBehaviour
             pageRefStr[i] = randomNumber;
         }
 		UpdateRefStringText();
+
+		// Initially add value
+		DataManager.instance.SetRefStringArray(pageRefStr);
+
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         
     }
@@ -48,14 +52,15 @@ public class RefStringGenerator : MonoBehaviour
 		for (int i = 0; i < pageRefLengthController.currentRefLength; i++)
 		{
 			int randomNumber = Random.Range(0, 9);
-			Debug.Log(randomNumber);
 
 			pageRefStr[i] = randomNumber;
+
 		}
 
-        UpdateRefStringText();
+		// Update DataManager with the new reference string
+		DataManager.instance.SetRefStringArray(pageRefStr);
 
-        Debug.Log("REF LENGTH IS : " + pageRefLengthController.currentRefLength);
+		UpdateRefStringText();
 	}
 
     private void UpdateRefStringText()

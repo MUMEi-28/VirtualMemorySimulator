@@ -8,37 +8,45 @@ public class FifoFrameGuiController : MonoBehaviour
 	public GameObject frameContainer;
     public Transform containerTransform;
 
+    public GameObject[] frameContainerArray;
+
 	// Start is called before the first frame update
 	void Start()
     {
-        
-    }
+        GenerateFrameContainers();
+		frameContainerArray = new GameObject[DataManager.instance.GetRefStringLength()];
 
-    // Update is called once per frame
-    void Update()
+	}
+
+	// Update is called once per frame
+	void Update()
     {
-        
-    }
+	}
 
-    public void OnClickApply()
+	public void OnClickApply()
     {
         GenerateFrameContainers();
     }
 
-	public void GenerateFrameContainers()
-	{
+    public void GenerateFrameContainers()
+    {
         // Reset the container first before adding, to avoid duplications
         foreach (Transform item in containerTransform)
         {
             Destroy(item.gameObject);
         }
 
+		int refLength = DataManager.instance.GetRefStringLength();
+		frameContainerArray = new GameObject[refLength];
 
-    // Instantiate the frames depending on how many the stringlenght is
-		for (int i = 0; i < DataManager.instance.GetRefStringLength(); i++)
-		{
-			Instantiate(frameContainer, containerTransform);
-		}
+		// Instantiate the frames depending on how many the stringlenght is
+		for (int i = 0; i < refLength; i++)
+        {
+            GameObject item = Instantiate(frameContainer, containerTransform);
+
+            // Add the frame to the array [used to compare on FrameGui.cs
+            frameContainerArray[i] = item;
+        } 
 	}
 
 }
