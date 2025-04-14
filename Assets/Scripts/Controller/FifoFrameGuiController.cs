@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class FifoFrameGuiController : MonoBehaviour
 	void Start()
     {
         GenerateFrameContainers();
-		frameContainerArray = new GameObject[DataManager.instance.GetRefStringLength()];
+	//	frameContainerArray = new GameObject[DataManager.instance.GetRefStringLength()];
 
 	}
 
@@ -46,6 +46,10 @@ public class FifoFrameGuiController : MonoBehaviour
 
             // Add the frame to the array [used to compare on FrameGui.cs
             frameContainerArray[i] = item;
+
+            // Set the Gui frame
+          /*  FifoAlgorithm.instance.frameGui[i] = item.GetComponent<FrameGui>();*/
+
         } 
 	}
 
