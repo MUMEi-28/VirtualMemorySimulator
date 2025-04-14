@@ -42,8 +42,6 @@ public class FrameGui : MonoBehaviour
 	public void GenerateFrameSlots()
 	{
 		int[] refString = DataManager.instance.GetRefStringArray();
-		Debug.Log(refString.Length);
-
 
 		for (int i = 0; i < DataManager.instance.GetFrameCount(); i++)
 		{

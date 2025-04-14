@@ -14,7 +14,10 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private int[] refStringArray;
 
-    public static DataManager instance;
+	[SerializeField]
+	private int pageFault;
+
+	public static DataManager instance;
 
     // Awake is called before the first frame updata
 	private void Awake()
@@ -33,8 +36,7 @@ public class DataManager : MonoBehaviour
     {
         
     }
-
-
+    
     public int GetFrameCount()
     {
         return frameCount;
@@ -58,5 +60,14 @@ public class DataManager : MonoBehaviour
     public int[] GetRefStringArray()
     {
         return refStringArray;
+    }
+
+    public void SetPageFault(int fault)
+    {
+        pageFault = fault;
+	}
+    public int GetPageFault()
+    {
+        return pageFault;
     }
 }

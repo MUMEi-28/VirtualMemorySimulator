@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,11 @@ public class FifoAlgorithm : MonoBehaviour
 	public Transform frameSlotParent;
 	public GameObject frameSlot;
 
+	public Transform fifoContainer;
+
 	public FrameGui[] frameGui;
+	public TMP_Text faultTextPrefab;
+	public TMP_Text totalFaultText;
 
 	public static FifoAlgorithm instance;
 
@@ -36,7 +41,13 @@ public class FifoAlgorithm : MonoBehaviour
 		Queue<int> fifoQueue = new Queue<int>();
 		HashSet<int> frameSet = new HashSet<int>(); // for fast lookup
 
-		frameGui = FindObjectsOfType<FrameGui>();
+		// Get the frameGui in sorted way by hierachy(Use this code if frames got inverted)
+		frameGui = FindObjectsOfType<FrameGui>()
+			.OrderBy(fg => fg.transform.GetSiblingIndex())
+			.ToArray();
+
+		// Get all the FrameGui
+	/*	frameGui = FindObjectsOfType<FrameGui>();*/
 
 		// Clear old children
 		for (int i = 0; i < frameGui.Length; i++)
@@ -59,8 +70,12 @@ public class FifoAlgorithm : MonoBehaviour
 
 			GuiSettings(column);
 
+
+
 			// Check if currentPage is in memory
-			if (!frameSet.Contains(currentPage))
+			bool isPageFault = !frameSet.Contains(currentPage);
+
+			if (isPageFault)
 			{
 				pageFaults++;
 
@@ -94,9 +109,15 @@ public class FifoAlgorithm : MonoBehaviour
 					txt.text = "";
 				}
 			}
-		}
 
-		Debug.Log("Total Page Faults: " + pageFaults);
+			// Add page fault text after adding the frame GUI
+			if (isPageFault)
+			{
+				Instantiate(faultTextPrefab, column.transform);
+			}
+		}
+		totalFaultText.text = "Total Page Faults: " + pageFaults;
+		DataManager.instance.SetPageFault(pageFaults);
 	}
 
 
