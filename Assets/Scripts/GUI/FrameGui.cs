@@ -27,9 +27,10 @@ public class FrameGui : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        // Set the Frame Slots when they got instantiated
-        GenerateFrameSlots();
+		// Set the Frame Slots when they got instantiated
+		/*  GenerateFrameSlots();*/
 
+		RenameFrameNumber();
 
 	}
 
@@ -39,14 +40,10 @@ public class FrameGui : MonoBehaviour
         
     }
 
-	public void GenerateFrameSlots()
+	
+	public void RenameFrameNumber()
 	{
 		int[] refString = DataManager.instance.GetRefStringArray();
-
-		for (int i = 0; i < DataManager.instance.GetFrameCount(); i++)
-		{
-			Instantiate(frameSlot, frameSlotParent.gameObject.transform);
-		}
 
 		for (int i = 0; i < refString.Length; i++)
 		{

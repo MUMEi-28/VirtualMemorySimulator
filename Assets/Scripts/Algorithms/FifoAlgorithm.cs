@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class FifoAlgorithm : MonoBehaviour
 {
@@ -38,8 +37,10 @@ public class FifoAlgorithm : MonoBehaviour
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
-		Queue<int> fifoQueue = new Queue<int>();
-		HashSet<int> frameSet = new HashSet<int>(); // for fast lookup
+		List<int> frameList = new List<int>(frameCount);
+		HashSet<int> frameSet = new HashSet<int>();
+		int pointer = 0;
+
 
 		// Get the frameGui in sorted way by hierachy(Use this code if frames got inverted)
 		frameGui = FindObjectsOfType<FrameGui>()
@@ -64,45 +65,51 @@ public class FifoAlgorithm : MonoBehaviour
 		{
 			int currentPage = refString[i];
 
-			// Create a column (a container for this step's frame state)
+			// Create column UI
 			GameObject column = new GameObject("Step " + i);
 			column.transform.SetParent(frameGui[i].frameSlotParent.transform);
-
 			GuiSettings(column);
 
-
-
-			// Check if currentPage is in memory
 			bool isPageFault = !frameSet.Contains(currentPage);
 
 			if (isPageFault)
 			{
 				pageFaults++;
 
-				// If full, remove the oldest page
-				if (fifoQueue.Count >= frameCount)
+				if (frameList.Count < frameCount)
 				{
-					int removed = fifoQueue.Dequeue();
-					frameSet.Remove(removed);
+					// Just add new
+					frameList.Add(currentPage);
+					frameSet.Add(currentPage);
 				}
+				else
+				{
+					// Replace oldest using pointer logic
+					int removedPage = frameList[pointer];
+					frameSet.Remove(removedPage);
 
-				// Add the current page
-				fifoQueue.Enqueue(currentPage);
-				frameSet.Add(currentPage);
+					frameList[pointer] = currentPage;
+					frameSet.Add(currentPage);
+
+					pointer = (pointer + 1) % frameCount; // move circularly
+				}
 			}
 
-			// Convert queue to list so we can index it
-			List<int> currentFrameList = new List<int>(fifoQueue);
-
-			// Fill frame slots
+			// Render current frame state from top (oldest) to bottom (newest)
 			for (int j = 0; j < frameCount; j++)
 			{
 				GameObject slot = Instantiate(frameSlot, column.transform);
 				TMP_Text txt = slot.GetComponentInChildren<TMP_Text>();
 
-				if (j < currentFrameList.Count)
+				if (j < frameList.Count)
 				{
-					txt.text = currentFrameList[j].ToString();
+					txt.text = frameList[j].ToString();
+
+					// Highlight if newly replaced
+					if (isPageFault && frameList[j] == currentPage)
+					{
+						slot.GetComponent<Image>().color = Color.red;
+					}
 				}
 				else
 				{
@@ -110,12 +117,12 @@ public class FifoAlgorithm : MonoBehaviour
 				}
 			}
 
-			// Add page fault text after adding the frame GUI
 			if (isPageFault)
 			{
 				Instantiate(faultTextPrefab, column.transform);
 			}
 		}
+
 		totalFaultText.text = "Total Page Faults: " + pageFaults;
 		DataManager.instance.SetPageFault(pageFaults);
 	}

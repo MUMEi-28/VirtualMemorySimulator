@@ -13,7 +13,7 @@ public class FifoFrameGuiController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        GenerateFrameContainers();
+     /*   GenerateFrameContainers();*/
 	//	frameContainerArray = new GameObject[DataManager.instance.GetRefStringLength()];
 
 	}
