@@ -70,6 +70,7 @@ public class FifoAlgorithm : MonoBehaviour
 			column.transform.SetParent(frameGui[i].frameSlotParent.transform);
 			GuiSettings(column);
 
+			// If there's a same number inside the frameSet then pageFault true
 			bool isPageFault = !frameSet.Contains(currentPage);
 
 			if (isPageFault)

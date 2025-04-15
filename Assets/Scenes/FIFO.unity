@@ -1053,8 +1053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRefLength: 3
-  maxRefStrLength: 9
-  minRefStrLength: 9
+  maxRefStrLength: 15
+  minRefStrLength: 3
   refStrCountText: {fileID: 1350027221}
   warning: {fileID: 299530289}
   applyButton: {fileID: 2029409281}
