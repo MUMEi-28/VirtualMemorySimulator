@@ -1,2 +1,0 @@
-# VirtualMemorySimulator
- case study
