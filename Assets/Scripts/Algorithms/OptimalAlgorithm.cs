@@ -1,80 +1,56 @@
-﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FifoAlgorithm : MonoBehaviour
+public class OptimalAlgorithm : MonoBehaviour
 {
-	private Queue<int> fifoQueue;
 	public Transform frameSlotParent;
 	public GameObject frameSlot;
-
-	public Transform fifoContainer;
-
-	public FrameGui[] frameGui;
 	public TMP_Text faultTextPrefab;
 	public TMP_Text totalFaultText;
+	public FrameGui[] frameGui;
 
-/*	public static FifoAlgorithm instance;
-*/
-	// Awake is called before start
+	public static OptimalAlgorithm instance;
+
 	private void Awake()
 	{
-		//instance = this;
+		instance = this;
 	}
 
-	// Start is called before the first frame update
-	void Start()
+	public void SimulateOptimal()
 	{
-		fifoQueue = new Queue<int>();
-
-	}
-
-	// Called when the simulate button is pressed
-	public void SimulateFIFO()
-	{
-		// Get all the data from DataManager.cs
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
-		// List is like an array in c#
 		List<int> frameList = new List<int>(frameCount);
-		HashSet<int> frameSet = new HashSet<int>();
-		int pointer = 0;
+		int pageFaults = 0;
 
-
-		// Get the frameGui in sorted way by hierachy(Use this code if frames got inverted)
+		// Sort FrameGui based on hierarchy
 		frameGui = FindObjectsOfType<FrameGui>()
 			.OrderBy(fg => fg.transform.GetSiblingIndex())
 			.ToArray();
 
-		// Get all the FrameGui
-		/*	frameGui = FindObjectsOfType<FrameGui>();*/
-
-		// Clear old children [to prevent them from stacking up]
-		for (int i = 0; i < frameGui.Length; i++)
+		// Clear old children
+		foreach (var gui in frameGui)
 		{
-			foreach (Transform child in frameGui[i].frameSlotParent.transform)
+			foreach (Transform child in gui.frameSlotParent.transform)
 			{
 				Destroy(child.gameObject);
 			}
 		}
 
-		int pageFaults = 0;
-
 		for (int i = 0; i < refString.Length; i++)
 		{
 			int currentPage = refString[i];
 
-			// Create column UI
+			// Create column for current step
 			GameObject column = new GameObject("Step " + i);
-			column.transform.SetParent(frameGui[i].frameSlotParent.transform); // set the new object parent to prevent the gui from getting messed up
+			column.transform.SetParent(frameGui[i].frameSlotParent.transform);
 			GuiSettings(column);
 
-			// If there's a same number inside the frameSet then pageFault true
-			bool isPageFault = !frameSet.Contains(currentPage);
+			bool isPageFault = !frameList.Contains(currentPage);
 
 			if (isPageFault)
 			{
@@ -82,24 +58,38 @@ public class FifoAlgorithm : MonoBehaviour
 
 				if (frameList.Count < frameCount)
 				{
-					// Just add new
 					frameList.Add(currentPage);
-					frameSet.Add(currentPage);
 				}
 				else
 				{
-					// Replace oldest using pointer logic
-					int removedPage = frameList[pointer];
-					frameSet.Remove(removedPage);
+					// Find optimal page to replace
+					int indexToReplace = -1;
+					int farthestUse = -1;
 
-					frameList[pointer] = currentPage;
-					frameSet.Add(currentPage);
+					for (int j = 0; j < frameList.Count; j++)
+					{
+						int futureIndex = int.MaxValue;
+						for (int k = i + 1; k < refString.Length; k++)
+						{
+							if (refString[k] == frameList[j])
+							{
+								futureIndex = k;
+								break;
+							}
+						}
 
-					pointer = (pointer + 1) % frameCount; // move circularly
+						if (futureIndex > farthestUse)
+						{
+							farthestUse = futureIndex;
+							indexToReplace = j;
+						}
+					}
+
+					frameList[indexToReplace] = currentPage;
 				}
 			}
 
-			// Render current frame state from top (oldest) to bottom (newest)
+			// Render current frame state
 			for (int j = 0; j < frameCount; j++)
 			{
 				GameObject slot = Instantiate(frameSlot, column.transform);
@@ -109,7 +99,6 @@ public class FifoAlgorithm : MonoBehaviour
 				{
 					txt.text = frameList[j].ToString();
 
-					// Highlight if newly replaced
 					if (isPageFault && frameList[j] == currentPage)
 					{
 						slot.GetComponent<Image>().color = Color.red;
@@ -133,7 +122,6 @@ public class FifoAlgorithm : MonoBehaviour
 
 	private void GuiSettings(GameObject column)
 	{
-		// Layout Settings
 		VerticalLayoutGroup vlg = column.AddComponent<VerticalLayoutGroup>();
 		vlg.spacing = 15;
 		vlg.childForceExpandWidth = true;
@@ -142,15 +130,11 @@ public class FifoAlgorithm : MonoBehaviour
 		vlg.childControlWidth = false;
 		vlg.childAlignment = TextAnchor.UpperCenter;
 
-		// Rect Settings [To position the frames]
 		RectTransform rectTransform = column.GetComponent<RectTransform>();
 		if (rectTransform != null)
 		{
-			// Set anchors to stretch
 			rectTransform.anchorMin = new Vector2(0, 0);
 			rectTransform.anchorMax = new Vector2(1, 1);
-
-			// Optionally, reset the offsets
 			rectTransform.offsetMin = Vector2.zero;
 			rectTransform.offsetMax = Vector2.zero;
 		}

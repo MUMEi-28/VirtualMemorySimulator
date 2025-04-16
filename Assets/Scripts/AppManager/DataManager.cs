@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+public enum AlgorithmEnum
+{
+	fifo,
+	lru,
+	opt
+}
+
 /// <summary>
 /// This is where all the datas are saved
 /// </summary>
@@ -16,6 +25,8 @@ public class DataManager : MonoBehaviour
 
 	[SerializeField]
 	private int pageFault;
+
+	public AlgorithmEnum algorithmEnum;
 
 	public static DataManager instance;
 
@@ -36,6 +47,7 @@ public class DataManager : MonoBehaviour
     {
         
     }
+
     
     public int GetFrameCount()
     {
