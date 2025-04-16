@@ -16,12 +16,12 @@ public class FrameGui : MonoBehaviour
     public GameObject frameSlotParent;
 
 	[SerializeField]
-	FifoFrameGuiController fifoFrameGuiController;
+	FrameGuiController frameGuiController;
 	
 	// Awake is called before the first frame update
 	private void Awake()
 	{
-		fifoFrameGuiController = FindObjectOfType<FifoFrameGuiController>();
+		frameGuiController = FindObjectOfType<FrameGuiController>();
 	}
 
 	// Start is called before the first frame update
@@ -47,7 +47,7 @@ public class FrameGui : MonoBehaviour
 
 		for (int i = 0; i < refString.Length; i++)
 		{
-			GameObject frameObj = fifoFrameGuiController.frameContainerArray[i];
+			GameObject frameObj = frameGuiController.frameContainerArray[i];
 			TMP_Text text = frameObj.GetComponentInChildren<TMP_Text>();
 
 			if (text != null)
