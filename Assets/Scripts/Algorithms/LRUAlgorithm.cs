@@ -4,10 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Which reference string will not be used the longest time then replace it.
-/// </summary>
-public class OptimalAlgorithm : MonoBehaviour
+public class LRUAlgorithm : MonoBehaviour
 {
 	public Transform frameSlotParent;
 	public GameObject frameSlot;
@@ -15,19 +12,20 @@ public class OptimalAlgorithm : MonoBehaviour
 	public TMP_Text totalFaultText;
 	public FrameGui[] frameGui;
 
-	public static OptimalAlgorithm instance;
+	public static LRUAlgorithm instance;
 
 	private void Awake()
 	{
 		instance = this;
 	}
 
-	public void SimulateOptimal()
+	public void SimulateLRU()
 	{
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
 		List<int> frameList = new List<int>(frameCount);
+		Dictionary<int, int> lastUsedMap = new Dictionary<int, int>();
 		int pageFaults = 0;
 
 		// Sort FrameGui based on hierarchy
@@ -35,7 +33,7 @@ public class OptimalAlgorithm : MonoBehaviour
 			.OrderBy(fg => fg.transform.GetSiblingIndex())
 			.ToArray();
 
-		// Clear old children
+		// Clear previous frame states
 		foreach (var gui in frameGui)
 		{
 			foreach (Transform child in gui.frameSlotParent.transform)
@@ -48,7 +46,6 @@ public class OptimalAlgorithm : MonoBehaviour
 		{
 			int currentPage = refString[i];
 
-			// Create column for current step
 			GameObject column = new GameObject("Step " + i);
 			column.transform.SetParent(frameGui[i].frameSlotParent.transform);
 			GuiSettings(column);
@@ -65,32 +62,15 @@ public class OptimalAlgorithm : MonoBehaviour
 				}
 				else
 				{
-					// Find optimal page to replace
-					int indexToReplace = -1;
-					int farthestUse = -1;
-
-					for (int j = 0; j < frameList.Count; j++)
-					{
-						int futureIndex = int.MaxValue;
-						for (int k = i + 1; k < refString.Length; k++)
-						{
-							if (refString[k] == frameList[j])
-							{
-								futureIndex = k;
-								break;
-							}
-						}
-
-						if (futureIndex > farthestUse)
-						{
-							farthestUse = futureIndex;
-							indexToReplace = j;
-						}
-					}
-
+					// Find least recently used page
+					int lruPage = frameList.OrderBy(p => lastUsedMap.ContainsKey(p) ? lastUsedMap[p] : -1).First();
+					int indexToReplace = frameList.IndexOf(lruPage);
 					frameList[indexToReplace] = currentPage;
 				}
 			}
+
+			// Update last used time
+			lastUsedMap[currentPage] = i;
 
 			// Render current frame state
 			for (int j = 0; j < frameCount; j++)
