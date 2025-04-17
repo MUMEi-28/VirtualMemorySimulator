@@ -17,8 +17,8 @@ public class FifoAlgorithm : MonoBehaviour
 	public TMP_Text faultTextPrefab;
 	public TMP_Text totalFaultText;
 
-/*	public static FifoAlgorithm instance;
-*/
+	/*	public static FifoAlgorithm instance;
+	*/
 	// Awake is called before start
 	private void Awake()
 	{
@@ -35,6 +35,10 @@ public class FifoAlgorithm : MonoBehaviour
 	// Called when the simulate button is pressed
 	public void SimulateFIFO()
 	{
+
+		// Generate the Frame containers first
+		//		FrameGuiController.instance.GenerateFrameContainers();
+
 		// Get all the data from DataManager.cs
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
@@ -126,10 +130,9 @@ public class FifoAlgorithm : MonoBehaviour
 				Instantiate(faultTextPrefab, column.transform);
 			}
 		}
-
 		totalFaultText.text = "Total Page Faults: " + pageFaults;
 		DataManager.instance.SetPageFault(pageFaults);
-	}
+	} 
 
 	private void GuiSettings(GameObject column)
 	{

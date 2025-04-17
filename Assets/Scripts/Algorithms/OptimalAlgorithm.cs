@@ -24,6 +24,9 @@ public class OptimalAlgorithm : MonoBehaviour
 
 	public void SimulateOptimal()
 	{
+		// Generate the Frame containers first
+		//		FrameGuiController.instance.GenerateFrameContainers();
+
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
@@ -121,7 +124,7 @@ public class OptimalAlgorithm : MonoBehaviour
 
 		totalFaultText.text = "Total Page Faults: " + pageFaults;
 		DataManager.instance.SetPageFault(pageFaults);
-	}
+	} 
 
 	private void GuiSettings(GameObject column)
 	{

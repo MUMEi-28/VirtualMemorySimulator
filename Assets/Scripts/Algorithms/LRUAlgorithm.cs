@@ -12,15 +12,13 @@ public class LRUAlgorithm : MonoBehaviour
 	public TMP_Text totalFaultText;
 	public FrameGui[] frameGui;
 
-	public static LRUAlgorithm instance;
-
-	private void Awake()
-	{
-		instance = this;
-	}
 
 	public void SimulateLRU()
 	{
+		// Generate the Frame containers first
+		//	FrameGuiController.instance.GenerateFrameContainers();
+
+
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
@@ -101,7 +99,7 @@ public class LRUAlgorithm : MonoBehaviour
 
 		totalFaultText.text = "Total Page Faults: " + pageFaults;
 		DataManager.instance.SetPageFault(pageFaults);
-	}
+	} 
 
 	private void GuiSettings(GameObject column)
 	{
