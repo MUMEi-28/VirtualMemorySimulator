@@ -590,6 +590,13 @@ MonoBehaviour:
   lruContainerTransform: {fileID: 595461715}
   optContainerTransform: {fileID: 1104632060}
   frameContainerArray: []
+  isFifoSimulated: 0
+  isLruSimulated: 0
+  isOptimalSimulated: 0
+  pageFaultTexts:
+  - {fileID: 154886688}
+  - {fileID: 80948720}
+  - {fileID: 494318215}
 --- !u!114 &186625166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,9 +1479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f901520484c5452449d4b6f9c6429c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRefLength: 3
-  maxRefStrLength: 15
-  minRefStrLength: 3
+  currentRefLength: 15
+  maxRefStrLength: 17
+  minRefStrLength: 15
   refStrCountText: {fileID: 1350027221}
   warning: {fileID: 299530289}
   applyButton: {fileID: 2029409281}
@@ -1707,6 +1714,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &507632905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1897,7 +1916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &533413217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3068,6 +3087,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &848187274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,7 +3344,7 @@ MonoBehaviour:
   refStringLenght: 3
   refStringArray: 
   pageFault: 0
-  algorithmEnum: 1
+  algorithmEnum: 0
 --- !u!4 &953556001
 Transform:
   m_ObjectHideFlags: 0
@@ -3969,7 +4000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1097765655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4548,7 +4579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1262726530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5204,6 +5235,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1450120792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5337,6 +5380,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickSimulated
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1627751755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5461,6 +5516,18 @@ MonoBehaviour:
       - m_Target: {fileID: 186625166}
         m_TargetAssemblyTypeName: AlgorithmSelector, Assembly-CSharp
         m_MethodName: OnClickPrev
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6496,6 +6563,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1869192384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6786,6 +6865,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickSimulated
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1878705789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7048,6 +7139,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickSimulated
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7687,6 +7790,18 @@ MonoBehaviour:
       - m_Target: {fileID: 186625166}
         m_TargetAssemblyTypeName: AlgorithmSelector, Assembly-CSharp
         m_MethodName: OnClickNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 186625165}
+        m_TargetAssemblyTypeName: FrameGuiController, Assembly-CSharp
+        m_MethodName: OnClickPrevNextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
