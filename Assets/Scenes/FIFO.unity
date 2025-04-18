@@ -1479,9 +1479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f901520484c5452449d4b6f9c6429c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRefLength: 15
+  currentRefLength: 3
   maxRefStrLength: 17
-  minRefStrLength: 15
+  minRefStrLength: 3
   refStrCountText: {fileID: 1350027221}
   warning: {fileID: 299530289}
   applyButton: {fileID: 2029409281}
