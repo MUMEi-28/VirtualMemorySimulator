@@ -53,7 +53,7 @@ MonoBehaviour:
   refStringNumTxt: {fileID: 7701115247360312667}
   frameSlot: {fileID: 787040008401945851, guid: 22d5a9f7870b66042b8a7837a40617bc, type: 3}
   frameSlotParent: {fileID: 7311555389612871867}
-  fifoFrameGuiController: {fileID: 0}
+  frameGuiController: {fileID: 0}
 --- !u!1 &2561189095585197521
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab800d431075fd84780fe99e1cd22ace, type: 2}
+  m_sharedMaterial: {fileID: 6093031275015543307, guid: ab800d431075fd84780fe99e1cd22ace, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
