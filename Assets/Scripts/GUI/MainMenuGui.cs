@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuGui : MonoBehaviour
 {
@@ -31,5 +32,11 @@ public class MainMenuGui : MonoBehaviour
     public void OnClickGithub()
     {
         Application.OpenURL("https://github.com/MUMEi-28/VirtualMemorySimulator");
+    }
+
+
+    public void ChangeImageOnClick(Sprite imgPrefab, Image imgComponent)
+    {
+        imgComponent.sprite = imgPrefab;
     }
 }
