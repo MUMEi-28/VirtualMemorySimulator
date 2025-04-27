@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is used to control how many frames you want to have
@@ -10,21 +11,17 @@ using TMPro;
 /// </summary>
 public class FrameCountController : MonoBehaviour
 {
-	public int currentFrameCount = 2;
-	public int maxFrameCount = 9;
-	public int minFrameCount = 1;
+	public int currentFrameCount;
+	public int maxFrameCount;
+	public int minFrameCount;
 
 	public TMP_Text frameCountText;
 	public Warnings warning;
 
+
 	// Called on very first frame
-
-
-
 	private void Start()
 	{
-		currentFrameCount = minFrameCount;
-
 		// Set the count initially
 		frameCountText.text = "Frames: " + currentFrameCount;
 
@@ -45,7 +42,10 @@ public class FrameCountController : MonoBehaviour
 			// Display warning from Warning.cs
 			warning.gameObject.SetActive(true);
 			warning.DisplayWarning("Maximum Frame Count Reached!");
+
+	
 		}
+	
 		UpdateFrameText();
 
 		// Update DataManager datas
@@ -65,7 +65,10 @@ public class FrameCountController : MonoBehaviour
 			// Display warning from Warning.cs
 			warning.gameObject.SetActive(true);
 			warning.DisplayWarning("Minimum Frame Count Reached!");
+
+	
 		}
+	
 		UpdateFrameText();
 
 		// Update DataManager datas
