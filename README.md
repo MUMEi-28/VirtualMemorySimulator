@@ -37,7 +37,7 @@ Replaces the page that will not be used for the longest time in the future.
 |:--------|:-----|:-------------|
 | Windows (.exe) | **[Download EXE Build](#)** | Download the `.zip` → Extract → Run the `.exe` file |
 | Android (.apk) | **[Download APK Build](#)** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
-| Web Browser | **[Play Web Version]([#](https://mumei-28.github.io/VirtualMemorySimulator/))** | Open the link → No installation needed! Just click and play! |
+| Web Browser | **[Play Web Version](https://mumei-28.github.io/VirtualMemorySimulator/)** | Open the link → No installation needed! Just click and play! |
 
 next time ko na update nalang yung exe at apk 😵‍💫
 ---
