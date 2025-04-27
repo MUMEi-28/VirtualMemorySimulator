@@ -13,16 +13,61 @@ public class MainMenuGui : MonoBehaviour
 	public AudioSource bgTrack;
 
 
+    // About panel
+    public GameObject[] aboutPanels;
+    public int currentPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         bgTrack = GameObject.FindGameObjectWithTag("BgTrack").GetComponent<AudioSource>();
 		soundButtonUnpressedBtnSprite = soundButton.sprite;
+
+		// Deactivate all panels initially
+
+		// Deactivate everything
+		for (int i = 0; i < aboutPanels.Length; i++)
+		{
+			aboutPanels[i].SetActive(false);
+		}
+
+		// activate the currentPanel index
+		aboutPanels[currentPanel].SetActive(true);
 	}
 
-	// Update is called once per frame
-	void Update()
+    // About Panels
+    public void OnClickNextPanel()
     {
+        currentPanel++;
+        UpdateCurrentPanel();
+    }
+    public void OnClickPrevPanel()
+    {
+        currentPanel--;
+        UpdateCurrentPanel();
+    }
+    private void UpdateCurrentPanel()
+    {
+        // create the looping illusion
+        if (currentPanel >= aboutPanels.Length)
+        {
+        // go back to the start panel
+            currentPanel = 0;
+        }
+        else  if (currentPanel < 0)
+        {
+            // Go to the last
+            currentPanel = aboutPanels.Length - 1;
+        }
+
+        // Deactivate everything
+        for (int i = 0; i < aboutPanels.Length; i++)
+        {
+            aboutPanels[i].SetActive(false);
+        }
+
+        // activate the currentPanel index
+        aboutPanels[currentPanel].SetActive(true);
         
     }
 
