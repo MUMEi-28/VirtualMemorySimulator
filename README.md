@@ -1,25 +1,20 @@
-
-# 🔁 Page Replacement Algorithms Simulator (FIFO, LRU, Optimal)
+# Virtual Memory Simulator
 
 ## 📌 Overview
 
-This project is a Unity-based simulation of **three classic page replacement algorithms**:
-- FIFO (First-In, First-Out)
-- LRU (Least Recently Used)
-- OPT (Optimal)
-
-It was developed as part of an asynchronous final activity for April 11, 2025, in accordance with the instructions from the CCS course's Chapter 10 (Virtual Memory Management).
+This project is a Unity-based simulation program that demonstrates the concepts of **Page Replacement Algorithms**:  
+- **FIFO** (First In First Out)  
+- **LRU** (Least Recently Used)  
+- **OPT** (Optimal Replacement)
 
 ---
 
-## 🎯 Objectives
-
-- Simulate **FIFO**, **LRU**, and **Optimal** page replacement algorithms.
-- Use a **randomly generated page reference string** (pages 0–9).
-- Accept a **custom number of page frames** at runtime.
-- Track and display the **number of page faults** for each algorithm.
-- Show **step-by-step GUI representations** for each algorithm.
-- Provide **screen captures** and documentation for evaluation.
+## 🎮 How to Play
+- Select the **number of page frames** and **reference string length** at the start.
+- Press the **Generate** Button.
+- Press the **Simulate** Button.
+- Choose an algorithm (**FIFO**, **LRU**, or **OPT**) to simulate.
+- View the number of page faults and simulation details!
 
 ---
 
@@ -36,69 +31,56 @@ Replaces the page that will not be used for the longest time in the future.
 
 ---
 
+## 📦 Download & Installation
+
+| Version | Link | Instructions |
+|:--------|:-----|:-------------|
+| Windows (.exe) | **[Download EXE Build](#)** | Download the `.zip` → Extract → Run the `.exe` file |
+| Android (.apk) | **[Download APK Build](#)** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
+| Web Browser | **[Play Web Version]([#](https://mumei-28.github.io/VirtualMemorySimulator/))** | Open the link → No installation needed! Just click and play! |
+
+next time ko na update nalang yung exe at apk 😵‍💫
+---
+
 ## 💻 Technologies Used
 
 - Unity (C#)
 - TextMeshPro for UI
-- Visual Studio Code / Unity Editor
-
----
-
-## 🗂️ Repository Contents
-
-```
-📁 Assets/
-├── Scripts/
-│   ├── FIFOAlgorithm.cs
-│   ├── LRUAlgorithm.cs
-│   ├── OptimalAlgorithm.cs
-│   └── DataManager.cs
-├── Prefabs/
-│   ├── FrameSlot.prefab
-│   └── FaultText.prefab
-├── Scenes/
-│   └── MainScene.unity
-📄 PageReplacementDocumentation.pdf
-📄 PageReplacementExecutable.exe
-📄 README.md
-```
+- Visual Studio Code
+- Unity Editor 2022.3.49f1
 
 ---
 
 ## 📸 Sample Screenshots
 
-The documentation includes **screen captures of three sample inputs and outputs** for each algorithm, showcasing how the system responds to different random reference strings and frame counts.
+![image](https://github.com/user-attachments/assets/81503940-1247-41b0-a076-e3d57761727a)
+
+![image](https://github.com/user-attachments/assets/971769e0-179c-4b5d-a74c-d86ab8326411)
+
+![image](https://github.com/user-attachments/assets/4099109c-8000-41a4-935e-68bf8453abdb)
+
+![image](https://github.com/user-attachments/assets/983f3d66-ee6a-4e9a-85dd-133c03e53219)
+
+![image](https://github.com/user-attachments/assets/190e795c-e411-41f5-bd98-8a87ea6a9d29)
+
+![image](https://github.com/user-attachments/assets/9a0a33cd-c44b-461d-9f97-54213f3751f2)
 
 ---
 
-## 🚀 How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/PageReplacementSimulator.git
-   ```
-
-2. Open the project in **Unity Hub**.
-
-3. Load the `MainScene.unity`.
-
-4. Enter the number of frames and click **Generate** to simulate.
-
-5. Use the respective buttons to simulate:
-   - FIFO
-   - LRU
-   - OPT
-
-6. View GUI rendering and fault count per algorithm.
+## 🎨 Assets Used
+| Asset | Link |
+|:------|:-----|
+| Font (VT323) | [Google Fonts - VT323](https://fonts.google.com/specimen/VT323) |
+| Background Track | [Retro 8-Bit RPG Music Pack (May Genko)](https://assetstore.unity.com/packages/audio/music/retro-8-bit-rpg-music-pack-by-may-genko-249721) |
+| Button Sound Effects | [Free UI Click Sound Pack](https://assetstore.unity.com/packages/audio/sound-fx/free-ui-click-sound-pack-244644) |
+| GUI Icons | [2D Simple UI Pack](https://assetstore.unity.com/packages/2d/gui/icons/2d-simple-ui-pack-218050) |
 
 ---
 
-## 📄 Submission Requirements
-
-✔️ Source Code (with detailed comments)  
-✔️ Executable File (.exe from Unity build)  
-✔️ Documentation File (PDF/Word with screenshots)  
-✔️ GitHub Repository Link ✅
+## 📢 Important Notes
+- All third-party assets are credited.
+- This project is for **educational use only**.
+- If you encounter issues installing APKs, allow installation from "Unknown Sources" in your Android settings.
 
 ---
 
@@ -107,12 +89,6 @@ The documentation includes **screen captures of three sample inputs and outputs*
 **Marc Jersey M. Castro**  
 BSCS / CCS Student  
 Final Project – Chapter 10: Page Replacement Algorithms  
-April 11, 2025  
 
 ---
 
-## 📝 License
-
-This project is for academic purposes only.
-
----
