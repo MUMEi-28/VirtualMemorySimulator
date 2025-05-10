@@ -46,6 +46,8 @@ public class MainMenuGui : MonoBehaviour
         currentPanel--;
         UpdateCurrentPanel();
     }
+
+
     private void UpdateCurrentPanel()
     {
         // create the looping illusion

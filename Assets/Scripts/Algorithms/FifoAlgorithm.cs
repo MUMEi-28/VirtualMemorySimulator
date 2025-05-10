@@ -17,12 +17,12 @@ public class FifoAlgorithm : MonoBehaviour
 	public TMP_Text faultTextPrefab;
 	public TMP_Text totalFaultText;
 
-	/*	public static FifoAlgorithm instance;
-	*/
+	public static FifoAlgorithm instance;
+
 	// Awake is called before start
 	private void Awake()
 	{
-		//instance = this;
+		instance = this;
 	}
 
 	// Start is called before the first frame update

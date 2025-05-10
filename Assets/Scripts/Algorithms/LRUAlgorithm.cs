@@ -12,6 +12,11 @@ public class LRUAlgorithm : MonoBehaviour
 	public TMP_Text totalFaultText;
 	public FrameGui[] frameGui;
 
+	public static LRUAlgorithm instance;
+	private void Awake()
+	{
+		instance = this;
+	}
 
 	public void SimulateLRU()
 	{
