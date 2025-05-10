@@ -35,11 +35,10 @@ Replaces the page that will not be used for the longest time in the future.
 
 | Version | Link | Instructions |
 |:--------|:-----|:-------------|
-| Windows (.exe) | **[Download EXE Build](#)** | Download the `.zip` → Extract → Run the `.exe` file |
-| Android (.apk) | **[Download APK Build](#)** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
+| Windows (.exe) | **[Download EXE Build]([#](https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.3.2_Windows))** | Download the `.zip` → Extract → Run the `.exe` file |
+| Android (.apk) | **[Download APK Build]([#](https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.2.0_Apk))** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
 | Web Browser | **[Play Web Version](https://mumei-28.github.io/VirtualMemorySimulator/)** | Open the link → No installation needed! Just click and play! |
 
-next time ko na update nalang yung exe at apk 😵‍💫
 ---
 
 ## 💻 Technologies Used
@@ -53,27 +52,24 @@ next time ko na update nalang yung exe at apk 😵‍💫
 
 ## 📸 Sample Screenshots
 
-![image](https://github.com/user-attachments/assets/81503940-1247-41b0-a076-e3d57761727a)
-
-![image](https://github.com/user-attachments/assets/971769e0-179c-4b5d-a74c-d86ab8326411)
-
-![image](https://github.com/user-attachments/assets/4099109c-8000-41a4-935e-68bf8453abdb)
-
-![image](https://github.com/user-attachments/assets/983f3d66-ee6a-4e9a-85dd-133c03e53219)
-
-![image](https://github.com/user-attachments/assets/190e795c-e411-41f5-bd98-8a87ea6a9d29)
-
-![image](https://github.com/user-attachments/assets/9a0a33cd-c44b-461d-9f97-54213f3751f2)
+![image](https://github.com/user-attachments/assets/582b29be-011e-48cf-9ece-973004db999c)
+![image](https://github.com/user-attachments/assets/56bbc40b-2549-4e7b-b848-6d44d342bf0f)
+![image](https://github.com/user-attachments/assets/373da036-379b-4031-8af2-0b8775d59d2b)
+![image](https://github.com/user-attachments/assets/e6caa55e-2c38-4fa5-aabe-6781ccfbd04f)
+![image](https://github.com/user-attachments/assets/6eff4b4b-a006-4a63-94a4-c60f1873060c)
+![image](https://github.com/user-attachments/assets/03bd1f45-ea03-4728-a83e-05a1e004ea88)
 
 ---
 
 ## 🎨 Assets Used
 | Asset | Link |
-|:------|:-----|
-| Font (VT323) | [Google Fonts - VT323](https://fonts.google.com/specimen/VT323) |
-| Background Track | [Retro 8-Bit RPG Music Pack (May Genko)](https://assetstore.unity.com/packages/audio/music/retro-8-bit-rpg-music-pack-by-may-genko-249721) |
-| Button Sound Effects | [Free UI Click Sound Pack](https://assetstore.unity.com/packages/audio/sound-fx/free-ui-click-sound-pack-244644) |
+|:------|:--------|
+| Font (VT323) | [Google Fonts](https://fonts.google.com/specimen/VT323) |
+| Background Music | [Retro 8-Bit RPG Music Pack](https://assetstore.unity.com/packages/audio/music/retro-8-bit-rpg-music-pack-by-may-genko-249721) |
+| Button Sounds | [Free UI Click Sound Pack](https://assetstore.unity.com/packages/audio/sound-fx/free-ui-click-sound-pack-244644) |
 | GUI Icons | [2D Simple UI Pack](https://assetstore.unity.com/packages/2d/gui/icons/2d-simple-ui-pack-218050) |
+| Cursor| [Pixel Cursors](https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256) |
+
 
 ---
 
