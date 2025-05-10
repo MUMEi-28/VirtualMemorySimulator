@@ -291,7 +291,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -2004,7 +2004,9 @@ MonoBehaviour:
     Free
     UI Click Sound Pack
 
-    2D Simple UI Pack'
+    2D Simple UI Pack
+
+    Pixel Cursor (ClayManStudio)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
   m_sharedMaterial: {fileID: -7891297978675129809, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
@@ -6671,7 +6673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1047624868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6887,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Chapter 10 - \nFont (VT323) - \nBackground Track - \nButton Sound Effects
-    - \nGUI Icons - "
+    - \nGUI Icons - \nCursor -\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
   m_sharedMaterial: {fileID: -7891297978675129809, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
@@ -7749,7 +7751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1275655561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8693,13 +8695,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a1c55699bd68a7d4e91d993ce837f797, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.57
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 72
+  Priority: 176
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -9463,13 +9465,15 @@ MonoBehaviour:
 
     -Customizable number of page frames
 
-    -Step-by-step
-    visualization for FIFO, LRU, and Optimal
+    -Visualization
+    for FIFO, LRU, and Optimal
 
     -Page fault counter
 
-    -User-friendly
-    GUI built in Unity'
+    -Retro Music
+
+    -Responsive
+    Screen Size'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
   m_sharedMaterial: {fileID: -7891297978675129809, guid: d2099351128292a4cb7c6c56de2bbd47, type: 2}
