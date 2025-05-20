@@ -35,8 +35,8 @@ Replaces the page that will not be used for the longest time in the future.
 
 | Version | Link | Instructions |
 |:--------|:-----|:-------------|
-| Windows (.exe) | **[Download EXE Build]([#](https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.3.2_Windows))** | Download the `.zip` → Extract → Run the `.exe` file |
-| Android (.apk) | **[Download APK Build]([#](https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.2.0_Apk))** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
+| Windows (.exe) | **[Download EXE Build]((https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.3.2_Windows))** | Download the `.zip` → Extract → Run the `.exe` file |
+| Android (.apk) | **[Download APK Build]((https://github.com/MUMEi-28/VirtualMemorySimulator/releases/tag/VmSim-v1.2.0_Apk))** | Download the `.apk` → Transfer to your phone → Install APK (Allow "Unknown Sources" if needed) |
 | Web Browser | **[Play Web Version](https://mumei-28.github.io/VirtualMemorySimulator/)** | Open the link → No installation needed! Just click and play! |
 
 ---
