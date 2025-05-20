@@ -74,7 +74,7 @@ public class ReferenceLengthController : MonoBehaviour
 		DataManager.instance.SetRefStringLength(currentRefLength);
 
 		// Disable the button when the generate button is not clicked yet
-		applyButton.interactable = false;
+//		applyButton.interactable = false;
 	}
 
 	private void UpdateRefStrText()

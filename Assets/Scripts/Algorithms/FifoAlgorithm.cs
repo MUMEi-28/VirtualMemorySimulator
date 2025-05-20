@@ -35,10 +35,6 @@ public class FifoAlgorithm : MonoBehaviour
 	// Called when the simulate button is pressed
 	public void SimulateFIFO()
 	{
-
-		// Generate the Frame containers first
-		//		FrameGuiController.instance.GenerateFrameContainers();
-
 		// Get all the data from DataManager.cs
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
@@ -48,14 +44,10 @@ public class FifoAlgorithm : MonoBehaviour
 		HashSet<int> frameSet = new HashSet<int>();
 		int pointer = 0;
 
-
-		// Get the frameGui in sorted way by hierachy(Use this code if frames got inverted)
+		// Get the frameGui in sorted way by hierachy
 		frameGui = FindObjectsOfType<FrameGui>()
 			.OrderBy(fg => fg.transform.GetSiblingIndex())
 			.ToArray();
-
-		// Get all the FrameGui
-		/*	frameGui = FindObjectsOfType<FrameGui>();*/
 
 		// Clear old children [to prevent them from stacking up]
 		for (int i = 0; i < frameGui.Length; i++)
@@ -74,7 +66,10 @@ public class FifoAlgorithm : MonoBehaviour
 
 			// Create column UI
 			GameObject column = new GameObject("Step " + i);
-			column.transform.SetParent(frameGui[i].frameSlotParent.transform); // set the new object parent to prevent the gui from getting messed up
+
+			// set the new object parent to make sure its on correct position
+			column.transform.SetParent(frameGui[i].frameSlotParent.transform); 
+			// Setup the GUI
 			GuiSettings(column);
 
 			// If there's a same number inside the frameSet then pageFault true
@@ -102,7 +97,9 @@ public class FifoAlgorithm : MonoBehaviour
 					pointer = (pointer + 1) % frameCount; // move circularly
 				}
 			}
+			
 
+			// Update GUI
 			// Render current frame state from top (oldest) to bottom (newest)
 			for (int j = 0; j < frameCount; j++)
 			{

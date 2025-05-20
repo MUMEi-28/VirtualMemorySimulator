@@ -46,20 +46,19 @@ public class RefStringGenerator : MonoBehaviour
     public void OnClickGenerate()
     {
         // Set the size of the array base on the pageRefLenght
-		pageRefStr = new int[pageRefLengthController.currentRefLength];// + 1 to prevent it going out of bounds [arrays start at 0 but ref string legnth start at 1]
+		pageRefStr = new int[pageRefLengthController.currentRefLength];
 
-		// Initially Generate a andom page-reference string
+		// Generate a random number arrays base on refLength
 		for (int i = 0; i < pageRefLengthController.currentRefLength; i++)
 		{
 			int randomNumber = Random.Range(0, 9);
-
 			pageRefStr[i] = randomNumber;
-
 		}
 
 		// Update DataManager with the new reference string
 		DataManager.instance.SetRefStringArray(pageRefStr);
 
+		// Update the GUI
 		UpdateRefStringText();
 	}
 

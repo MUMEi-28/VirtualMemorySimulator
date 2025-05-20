@@ -20,10 +20,6 @@ public class LRUAlgorithm : MonoBehaviour
 
 	public void SimulateLRU()
 	{
-		// Generate the Frame containers first
-		//	FrameGuiController.instance.GenerateFrameContainers();
-
-
 		int[] refString = DataManager.instance.GetRefStringArray();
 		int frameCount = DataManager.instance.GetFrameCount();
 
